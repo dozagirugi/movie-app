@@ -1,7 +1,6 @@
 @font-face {
   font-family: 'Jamsil';
   src: url(./assets/fonts/JamsilMedium.ttf);
-  font-style: normal;
 }
 
 /* 루트는 자주쓰는 색을 변수로 지정 */
@@ -32,7 +31,7 @@ html {
 body {
 	background-color: var(--body_backgroud);
 	color: var(--body_color);
-	font-family: 'Jamsil', sans-serif;
+	font-family: 'Jamsil';
   }
 
 .align_center {
