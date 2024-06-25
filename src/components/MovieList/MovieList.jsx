@@ -1,7 +1,7 @@
 import "./MovieList.css";
 import Fire from "../../assets/fire.png";
 import MovieCard from "./MovieCard";
-
+import _ from "lodash";
 import { useEffect, useState } from "react";
 
 export default function MovieList() {
@@ -39,6 +39,13 @@ export default function MovieList() {
     setSort((prev) => ({ ...prev, [name]: value }));
   };
   console.log(sort);
+
+  useEffect(() => {
+    if (sort.by !== "default") {
+      const sortedMovies = _.orderBy(filterMovies, [sort.by], [sort.order]);
+      setFilterMovies(sortedMovies);
+    }
+  }, [sort]);
 
   return (
     <section className="movie_list">
@@ -81,13 +88,23 @@ export default function MovieList() {
             </li>
           </ul>
 
-          <select name="by" id="by" className="movie_sorting">
+          <select
+            name="by"
+            id="by"
+            onChange={handleSort}
+            className="movie_sorting"
+          >
             <option value="default">정렬 기준</option>
             <option value="release_date">개봉일 순</option>
             <option value="vote_average">평점 순</option>
           </select>
 
-          <select name="order" id="order" className="movie_sorting">
+          <select
+            name="order"
+            id="order"
+            onChange={handleSort}
+            className="movie_sorting"
+          >
             <option value="asc">오름차순</option>
             <option value="desc">내림차순</option>
           </select>
