@@ -41,3 +41,8 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
+
+.movie_list_heading {
+	font-size: 26px;
+	color: var(--heading_color);
+}
