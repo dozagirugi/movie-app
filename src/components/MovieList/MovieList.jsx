@@ -1,10 +1,10 @@
 import "./MovieList.css";
 import Fire from "../../assets/fire.png";
 import MovieCard from "./MovieCard";
-import _ from "lodash";
 import { useEffect, useState } from "react";
+import _ from "lodash";
 
-export default function MovieList() {
+export default function MovieList({ type, title, emoji }) {
   const [movies, setMovies] = useState([]);
   const [filterMovies, setFilterMovies] = useState([]);
   const [minRating, setMinRating] = useState(0);
@@ -15,7 +15,7 @@ export default function MovieList() {
 
   const fetchMovies = async () => {
     const response = await fetch(
-      "https://api.themoviedb.org/3/movie/popular?api_key=90f95aa999b5d07928b9e6edf0d91e41&language=ko"
+      `https://api.themoviedb.org/3/movie/${type}?api_key=90f95aa999b5d07928b9e6edf0d91e41&language=ko`
     );
     const data = await response.json();
     setMovies(data.results);
@@ -48,10 +48,10 @@ export default function MovieList() {
   }, [sort]);
 
   return (
-    <section className="movie_list">
+    <section className="movie_list" id={`${type}`}>
       <header className="align_center movie_list_header">
         <h2 className="align_center movie_list_heading">
-          인기작품 <img src={Fire} alt="Fire emoji" className="navbar_emoji" />
+          {title} <img src={emoji} alt="Emoji" className="navbar_emoji" />
         </h2>
 
         <div className="align_center movie_list_fs">

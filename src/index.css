@@ -1,7 +1,6 @@
 @font-face {
-  font-family: 'RixInooAriDuriR';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2207-01@1.0/RixInooAriDuriR.woff2') format('woff2');
-  font-weight: normal;
+  font-family: 'Jamsil';
+  src: url(./assets/fonts/JamsilMedium.ttf);
   font-style: normal;
 }
 
@@ -26,16 +25,14 @@
 	transition: all 0.3s ease-in-out;
   }
 
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+html {
+	scroll-behavior: smooth;
 }
-
 
 body {
 	background-color: var(--body_backgroud);
 	color: var(--body_color);
+	font-family: 'Jamsil', sans-serif;
   }
 
 .align_center {
